@@ -1,0 +1,262 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="list_main.master.cs" Inherits="plugs_common_view_classweb_list_main" Debug="true" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/animate.css" rel="stylesheet" />
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="../css/frameout.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <script src="../js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <!--<script src="../js/bootstrap.min.js" type="text/javascript"></script>-->
+    <link href="../css/ScreenStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/spage-style.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+	  //IE 9下面 HTML5 标签兼容
+      <script src="../js/html5shiv.min.js"></script>
+	  //IE 9下面 媒体渲染兼容
+      <script src="../js/respond.min.js"></script>
+  <![endif]-->
+    <asp:ContentPlaceHolder ID="lmain" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body ng-app="myApp" ng-controller="myController" style="width:100%;">
+    <!-- 列表页面 开始  -->
+   <!-- <form id="Form1" >-->
+        <div id="list-box" name="top">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- 单页面模块 开始  -->
+                    <div id="list-main" class="container-fluid" >
+                        <div class="row">
+
+                            <!-- 单页面模块 头部下拉 开始  -->
+                            <nav id="headroom" class="navbar-collapse set" style="width:100%;">
+							<!-- 导航左边   开始 -->
+							<%--<ul class="nav navbar-nav hidden-xs">
+								<li><a class="tlogo" href="../../view/user/index.html" target="_self" title="logo"><img src="../../assets/images/logo-img2.png"></a></li>
+							</ul>--%>
+				        	<ul class="nav navbar-nav hidden-xs">
+				            	<li class="dropdown">
+									<a aria-expanded="false" href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="appcenter" style="margin-left:20px;"></span>
+                                    <div id="utype" hidden="hidden"><%=UserType %></div>
+									<%--<i class="glyphicon glyphicon-menu-down" aria-hidden="true"></i>--%>
+			                        &nbsp;
+									</a>
+									<%--<ul class="dropdown-menu list-menu">
+										<li><div class="arrow-up"></div></li>
+						    			<div id="dropdown-nav-main">
+						    				<div class="col-xs-4 col-sm-3 col-md-2" ng-repeat="item in MyAppCloud">
+						    						<a  ng-click="GoPage(item.purl,item.plugid,item.pname,item.opentype)"  target="_self" title="{{item.pname}}"><img  ng-src="../../view/user/{{GetPicon(item.picon)}}" width="100%" height="100%" /><div class="title-text" style=" white-space:nowrap; overflow:hidden;"><span ng-class="OnCss(item.plugid)">{{item.pname}}</span></div></a>
+						    				</div>
+						    				
+						    				   <div class="col-xs-4 col-sm-3 col-md-2">
+						    					<a href="../../../../view/user/index.html" target="_self" title="首页"><img src="../../../../assets/images/icon_home.png" width="100%" height="100%" /><div class="title-text" style=" white-space:nowrap; overflow:hidden;"><span>首页</span></div></a>
+						    				</div>
+						    			</div>
+									</ul>--%>
+								</li>
+				          	</ul>
+							<!-- 导航左边   结束 -->
+							<%--<div class="row visible-xs navbar-default">
+								<div class="navbar-header">
+						            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						              <span class="sr-only">Toggle navigation</span>
+						              <span class="icon-bar"></span>
+						              <span class="icon-bar"></span>
+						              <span class="icon-bar"></span>
+						            </button>
+						          </div>
+						        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">          
+									<ul class="nav navbar-nav">
+										<li class="active"><a href="iframe/list_iframe6.html" target="iframewindow">列表管理</a></li>
+										<li><a href="iframe/list_iframe7.html" target="iframewindow">表单管理</a></li>
+										<li><a href="iframe/list_iframe7.html" target="iframewindow">标签功能</a></li>
+                                        <li><a href="../../../school/admin_kg_sch.html" target="iframewindow">学校管理</a></li>
+									</ul>
+						        </div><!--/.nav-collapse -->							
+							</div>	--%>
+							
+							
+							<ul class="nav navbar-nav navbar-right hidden-xs">							
+				            	<li class="dropdown user" style="margin-right:40px;">
+				            		<div class="user-img" onclick="modal()">
+                                    <img id="myphoto"  src="user_img.png" width="100%" height="100%" />
+                                    <img id="myphoto1"  src="<%=userphoto %>" width="100%" height="100%" /></div>
+									<a aria-expanded="false" href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<span class="username"><%=teaname %></span>
+									<i class="glyphicon glyphicon-menu-down" aria-hidden="true"></i>
+			                        &nbsp;
+									</a>
+									<ul class="dropdown-menu" style="margin-left:-50px;">
+										<li class="hidden-xs"><div class="arrow-up"></div></li>
+										<li onclick="SetGoPage('','1101','个人中心')" style=" cursor:pointer"><a><i class="glyphicon glyphicon-cog"></i> &nbsp;设置</a></li>
+										<li class="divider"></li>					
+										<li class="userout"  style="cursor:pointer;"><a href="http://oa.chsx.cn/ISchoolOs/mainlogin.aspx"><i class="glyphicon glyphicon-off"></i> &nbsp;退出</a></li>
+									</ul>
+								</li>
+								<%--<li class="hidden-xs">
+					            	<div class="cut">
+					            	</div>
+					            </li>
+					            <li class="hidden-xs dropdown remind">
+					            	<div aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown">
+						            	<a title="提醒" href="#">
+						            		<i class="glyphicon glyphicon-bell hidden-xs"></i>
+						            		<span>12</span>
+						            	</a>					            		
+					            	</div>
+					            	<ul class="dropdown-menu">
+										<li class="hidden-xs"><div class="arrow-up"></div></li>
+										<li><a href="#">您有16条未读消息 &nbsp;<span class="pull-right small">4分钟前</span></a></li>
+										<li class="divider"></li>
+										<li><a href="#">3条新回复  &nbsp; <span class="pull-right small">4分钟前</span></a></li>
+										<li class="divider"></li>
+										<li><a href="#" style="text-align: center;">&nbsp;查看所有  &nbsp;</a></li>
+									</ul>
+					            </li>
+					            <li class="hidden-xs">
+					            	<div class="cut">
+					            	</div>
+					            </li>
+					            <li class="hidden-xs">
+					            	<div class="quest">
+					            		<a href="http://www.bestsch.com" target="_blank" title="帮助"><img src="../../assets/images/icon_quest2.png" width="23" height="23" /></a>	
+					            	</div>           	
+					            </li>--%>
+							</ul>
+				        </nav>
+                            <!-- 单页面模块 头部下拉 结束  -->
+
+                            <script>
+                                //单页面模块 头部下拉 滚动条向下滚动时候js调用
+                                $(function () {
+                                    //$(document).each(function () {
+                                    //$(document).ready(function () {
+
+                                    // 获取页面元素
+                                    var myElement = document.getElementById("headroom");
+                                    //var myElement = document.querySelector("header");
+                                    // 创建 Headroom 对象，将页面元素传递进去
+                                    var headroom = new Headroom(myElement);
+                                    // 初始化
+                                    headroom.init();
+
+                                });
+
+                                //单页面模块 头部下拉 滚动条向下滚动时候  动画效果			
+                                (function () {
+                                    var header = new Headroom(document.getElementById("headroom"), {
+                                        tolerance: 5,
+                                        offset: 205,
+                                        classes: {
+                                            initial: "animated",
+                                            pinned: "slideDown",
+                                            unpinned: "slideUp"
+                                        }
+                                    });
+                                    header.init();
+                                }());
+                            </script>
+
+
+                            <!-- 单页面模块 内容切入预留的地方  开始  -->
+                            <div style="text-align: center; font-size: 5em;">
+                                <%--<div id="overlay"></div>
+                                <div id="divty" class="showidv">
+                                    <div id="showty">
+                                        <h3 class="h3"><a class="close"></a></h3>
+                                        <iframe id="iframety" src="" scrolling="no" frameborder="0"></iframe>
+                                    </div>
+                                </div>--%>
+                                <asp:ContentPlaceHolder ID="lcontent" runat="server"></asp:ContentPlaceHolder>
+
+                            </div>
+                            <!-- 单页面模块 内容切入预留的地方 结束  -->
+
+
+                        </div>
+                        <footer>
+					    	<div class="container-fluid">
+					            <ul class="text-muted" style="margin-top:15px;width:100%;">
+					              <li><span class="copyright hidden-xs" style="color: #777;font-family: Microsoft YaHei;">Copyright &copy; 2015 Bestsch Inc All Rights reserved.</span></li>
+					              <li><span class="copyright visible-xs" style="color: #777;font-family: Microsoft YaHei;">Copyright &copy; 2015 Bestsch 公司保留所有权利。</span></li>
+					            </ul>
+					        </div>
+					    </footer>
+
+                    </div>
+                    <!-- 单页面模块 结束  -->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 列表页面 结束  -->
+    <!--</form>-->
+    <div id="top_div"><a class="glyphicon glyphicon-chevron-up"></a></div>
+    <script type="text/javascript">
+
+        window.onscroll = function () {
+            var t = document.documentElement.scrollTop || document.body.scrollTop;
+            var top_div = document.getElementById("top_div");
+            if (t >= 300) {
+                top_div.style.display = "inline";
+            } else {
+                top_div.style.display = "none";
+            }
+        };
+        $("#top_div").click(function () {
+            $("html,body").animate({ scrollTop: 0 + 'px' }, 1000);
+        });
+        var utype = $("#utype").text();
+      //  if (utype == "T") {
+            $(".appcenter").text("我约校长");
+            $("title").text("我约校长");
+      //  }
+       // else if (utype == "S") {
+       //     $(".appcenter").text("");
+     //       $("title").text("");
+   //     }
+        
+        var myphoto=$("#myphoto1").attr("src") 
+        if (myphoto == "") {
+            $("#myphoto1").hide();
+            $("#myphoto").show();
+        }
+        else {
+            $("#myphoto").hide();
+            $("#myphoto1").show();
+        }
+    </script>
+
+    <!-- Button modal -->
+    <button type="button" id="addbtn" class="btn visible-xs hidden-xs" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/angular.js" type="text/javascript"></script>
+</body>
+</html>
+

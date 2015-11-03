@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <config>
+    <OldFuncPath value="../../Schinfo">
+    </OldFuncPath>
+    <!--plugs/-->
+    <FuncPath value="">
+    </FuncPath>
+    <FuncSelectPath value="select.aspx">
+    </FuncSelectPath>
+    <MasterPath value="template"></MasterPath>
+    <UploadErrorTip value="config/">
+    </UploadErrorTip>
+    <SiteUserType value="M:全局管理员:0,Q:系统管理员:1,X:学校管理员:2,T:教师用户:3,S:学生用户:4,P:家长用户:4">
+    </SiteUserType>
+    <SuperAdminDesk value="super">
+    </SuperAdminDesk>
+    <SuperAdministrator value="M">
+    </SuperAdministrator>
+    <AdminDesk value="admin">
+    </AdminDesk>
+    <AdminDeskUser value="Q">
+    </AdminDeskUser>
+    <SchoolDesk value="school">
+    </SchoolDesk>
+    <SchoolDeskUser value="X">
+    </SchoolDeskUser>
+    <ManageDesk value="manage">
+    </ManageDesk>
+    <ManageDeskUser value="T">
+    </ManageDeskUser>
+    <StudentDesk value="student">
+    </StudentDesk>
+    <StudentDeskUser value="S">
+    </StudentDeskUser>
+    <TeacherDesk value="manage">
+    </TeacherDesk>
+    <TeacherDeskUser value="T">
+    </TeacherDeskUser>
+    <!--登录成功后访问页面-->
+    <LoginRedirectPage value="/../desktop/main.aspx">
+    </LoginRedirectPage>
+    <!--系统应用对象级别：国5省4市3区2校1-->
+    <SystemUserStep value="1">
+    </SystemUserStep>
+    <StepCodeLength value="3">
+    </StepCodeLength>
+    <IniStepCode value="100">
+    </IniStepCode>
+    <GroupMgrPlugs value="0111">
+    </GroupMgrPlugs>
+    <SiteServerKey value="{#server_site#}">
+    </SiteServerKey>
+    <AppServerKey value="{#server_app#}">
+    </AppServerKey>
+    <PubServerKey value="{#server_pub#}">
+    </PubServerKey>
+    <HtmlServerKey value="{#server_html#}">
+    </HtmlServerKey>
+    <ServiceServerKey value="{#server_service#}">
+    </ServiceServerKey>
+    <VideoServerKey value="{#server_video#}">
+    </VideoServerKey>
+    <ImageServerKey value="{#server_image#}">
+    </ImageServerKey>
+    <FileServerKey value="{#server_file#}">
+    </FileServerKey>
+    <RssServerKey value="{#server_rss#}">
+    </RssServerKey>
+    <ProxyServerKey value="{#server_proxy#}">
+    </ProxyServerKey>
+    <!--操作之后进行操作:refresh:刷新当前页面-->
+    <AddThenGo value="refresh">
+    </AddThenGo>
+    <EditThenGo value="refresh">
+    </EditThenGo>
+    <DeleteThenGo value="refresh">
+    </DeleteThenGo>
+    <CreateHtml value="refresh">
+    </CreateHtml>
+    <DeskRelativePath value="">
+    </DeskRelativePath>
+    <!--各配置文件所在目录-->
+    <EmailConfigPath value="/config/xml/emailconfig.xml">
+    </EmailConfigPath>
+    <ErrorConfigPath value="/config/xml/errorconfig.xml">
+    </ErrorConfigPath>
+    <LinkConfigPath value="/config/xml/linkconfig.xml">
+    </LinkConfigPath>
+    <SiteConfigPath value="/config/xml/siteconfig.xml">
+    </SiteConfigPath>
+    <SysrunPath value="/config/xml/sysrun.xml">
+    </SysrunPath>
+    <FCKeditorPath value="ucs/cmseditor/">
+    </FCKeditorPath>
+    <MyEditorPath value="ucs/myedit/">
+    </MyEditorPath>
+    <!--章节配置-->
+    <TopNodeSERID value="26">
+    </TopNodeSERID>
+    <GradeNodeDepth value="3">
+    </GradeNodeDepth>
+    <SubjectNodeDepth value="2">
+    </SubjectNodeDepth>
+    <TermNodeDepth value="0">
+    </TermNodeDepth>
+    <!--反射实例化对象缓存前缀-->
+    <InterfacePrefix value="I_">
+    </InterfacePrefix>
+    <NamePrefix value="cms">
+    </NamePrefix>
+    <DbServerNameSpacePath value="dbserver">
+    </DbServerNameSpacePath>
+  </config>
+</root>
